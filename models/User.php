@@ -28,7 +28,7 @@ class User {
         $this->fullname = htmlspecialchars(strip_tags($this->fullname));
         $this->role = htmlspecialchars(strip_tags($this->role));
 
-        // Mã hóa mật khẩu (Yêu cầu bắt buộc) [cite: 99]
+        // Mã hóa mật khẩu
         $hashed_password = password_hash($this->password, PASSWORD_BCRYPT);
 
         $stmt->bindParam(':username', $this->username);
@@ -43,23 +43,20 @@ class User {
         return false;
     }
 
-    // 2. Kiểm tra đăng nhập (Đã có, giữ nguyên)
-    public function login($email, $password) {
+    // 2. Tìm người dùng theo Email (Mới thêm)
+    public function findByEmail($email) {
         $query = "SELECT * FROM " . $this->table . " WHERE email = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($password, $user['password'])) {
-                return $user;
-            }
+            return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về mảng dữ liệu user
         }
-        return false;
+        return false; // Không tìm thấy email
     }
-    
-    // 3. Lấy tất cả người dùng (Dùng cho trang Quản lý của Admin)
+
+    // 3. Lấy tất cả người dùng (Cho Admin)
     public function readAll() {
         $query = "SELECT id, username, email, fullname, role, created_at FROM " . $this->table;
         $stmt = $this->conn->prepare($query);
