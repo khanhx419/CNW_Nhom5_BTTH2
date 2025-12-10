@@ -3,7 +3,7 @@
 <h2>Edit Lesson</h2>
 
 <form action="index.php?controller=lesson&action=update&id=<?= $lesson['id'] ?>" method="POST">
-    
+
     <input type="hidden" name="course_id" value="<?= $lesson['course_id'] ?>">
 
     <label>Lesson Title:</label>

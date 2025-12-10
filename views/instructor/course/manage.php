@@ -20,7 +20,8 @@
 
             <td>
                 <a href="index.php?controller=course&action=edit&id=<?= $c['id'] ?>">Edit</a> |
-                <a href="index.php?controller=course&action=delete&id=<?= $c['id'] ?>" onclick="return confirm(' delete? ')">Delete</a> |
+                <a href="index.php?controller=course&action=delete&id=<?= $c['id'] ?>"
+                    onclick="return confirm(' delete? ')">Delete</a> |
                 <a href="index.php?controller=lesson&action=manage&course_id=<?= $c['id'] ?>">Lessons</a> |
                 <a href="index.php?controller=material&action=upload&course_id=<?= $c['id'] ?>">Materials</a>
             </td>

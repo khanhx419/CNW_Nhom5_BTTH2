@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'config/Database.php';
+require_once 'controllers/AuthMiddleware.php';
 
 $controllerName = 'HomeController';
 $actionName = 'index';
@@ -8,7 +9,7 @@ $actionName = 'index';
 if (isset($_GET['url'])) {
     $url = rtrim($_GET['url'], '/');
     $url = explode('/', $url);
-    
+
     if (!empty($url[0])) {
         $controllerName = ucfirst($url[0]) . 'Controller';
     }
@@ -35,4 +36,3 @@ if (file_exists($controllerPath)) {
 } else {
     echo "404 - Controller '$controllerName' không tồn tại.";
 }
-?>

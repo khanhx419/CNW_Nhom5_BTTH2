@@ -12,15 +12,16 @@
     </tr>
 
     <?php foreach ($lessons as $l): ?>
-        <tr>
-            <td><?= $l['id'] ?></td>
-            <td><?= $l['title'] ?></td>
+    <tr>
+        <td><?= $l['id'] ?></td>
+        <td><?= $l['title'] ?></td>
 
-            <td>
-                <a href="index.php?controller=lesson&action=edit&id=<?= $l['id'] ?>">Edit</a> |
-                <a href="index.php?controller=lesson&action=delete&id=<?= $l['id'] ?>&course_id=<?= $course_id ?>" onclick="return confirm('delete?')">Delete</a>
-            </td>
-        </tr>
+        <td>
+            <a href="index.php?controller=lesson&action=edit&id=<?= $l['id'] ?>">Edit</a> |
+            <a href="index.php?controller=lesson&action=delete&id=<?= $l['id'] ?>&course_id=<?= $course_id ?>"
+                onclick="return confirm('delete?')">Delete</a>
+        </td>
+    </tr>
     <?php endforeach; ?>
 </table>
 
