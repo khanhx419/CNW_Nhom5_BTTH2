@@ -2,7 +2,7 @@
 
 <?php 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 0) {
-    header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+    header("Location: /CNW_Nhom5_BTTH2/auth/login");
     exit();
 }
 ?>
@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 0) {
         <p class="mb-0">Đây là trang Dashboard dành riêng cho bạn. Tại đây bạn sẽ xem được các khóa học đã đăng ký.</p>
     </div>
 
-    <a href="/CNW/CNW_Nhom5_BTTH2/auth/logout" class="btn btn-danger">
+    <a href="/CNW_Nhom5_BTTH2/Auth/logout" class="btn btn-danger">
         <i class="bi bi-box-arrow-right"></i> Đăng xuất
     </a>
 </div>

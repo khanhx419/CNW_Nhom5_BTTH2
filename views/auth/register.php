@@ -11,7 +11,7 @@
                     <div class="alert alert-danger"><?php echo $error; ?></div>
                 <?php endif; ?>
 
-                <form action="/CNW/CNW_Nhom5_BTTH2/auth/register" method="POST">
+                <form action="/CNW_Nhom5_BTTH2/auth/register" method="POST">
                     <div class="mb-3">
                         <label class="form-label">Họ và tên</label>
                         <input type="text" class="form-control" name="fullname" required>
@@ -28,11 +28,13 @@
                         <label class="form-label">Mật khẩu</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-success w-100">Đăng ký ngay</button>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">Đăng ký ngay</button>
+                    </div>
                 </form>
             </div>
             <div class="card-footer text-center">
-                Đã có tài khoản? <a href="/CNW/CNW_Nhom5_BTTH2/auth/login">Đăng nhập</a>
+                Đã có tài khoản? <a href="/CNW_Nhom5_BTTH2/auth/login">Đăng nhập</a>
             </div>
         </div>
     </div>

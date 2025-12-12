@@ -17,7 +17,8 @@ class AuthController {
             $user->role = 0; // Mặc định là Học viên
 
             if ($user->register()) {
-                header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+                header("Location: /CNW_Nhom5_BTTH2/auth/login");
+                exit;
             } else {
                 $error = "Đăng ký thất bại. Email hoặc Username có thể đã tồn tại.";
                 require_once 'views/auth/register.php';
@@ -50,11 +51,11 @@ class AuthController {
 
                     // Phân quyền chuyển hướng
                     if ($user['role'] == 2) {
-                        header("Location: /CNW/CNW_Nhom5_BTTH2/admin/dashboard");
+                        header("Location: /CNW_Nhom5_BTTH2/admin/dashboard");
                     } elseif ($user['role'] == 1) {
-                        header("Location: /CNW/CNW_Nhom5_BTTH2/instructor/dashboard");
+                        header("Location: /CNW_Nhom5_BTTH2/instructor/dashboard");
                     } else {
-                        header("Location: /CNW/CNW_Nhom5_BTTH2/student/dashboard");
+                        header("Location: /CNW_Nhom5_BTTH2/student/dashboard");
                     }
                     exit();
                 } else {
@@ -74,7 +75,7 @@ class AuthController {
     public function logout() {
         session_unset();
         session_destroy();
-        header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+        header("Location: /CNW_Nhom5_BTTH2/auth/login");
         exit();
     }
 }

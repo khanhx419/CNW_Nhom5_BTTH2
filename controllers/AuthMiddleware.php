@@ -10,7 +10,7 @@ class AuthMiddleware {
     public static function requireStudent() {
         self::ensureSession();
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION['user_role'] != 0) {
-            header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+            header("Location: /CNW_Nhom5_BTTH2/auth/login");
             exit();
         }
     }
@@ -18,7 +18,7 @@ class AuthMiddleware {
     public static function requireInstructor() {
         self::ensureSession();
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION['user_role'] != 1) {
-            header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+            header("Location: /CNW_Nhom5_BTTH2/auth/login");
             exit();
         }
     }
@@ -26,7 +26,7 @@ class AuthMiddleware {
     public static function requireAdmin() {
         self::ensureSession();
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION['user_role'] != 2) {
-            header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+            header("Location: /CNW_Nhom5_BTTH2/auth/login");
             exit();
         }
     }

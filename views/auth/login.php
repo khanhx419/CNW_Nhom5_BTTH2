@@ -1,4 +1,4 @@
-<?php include 'views/layouts/header.php'; ?>
+<?php include __DIR__ . '/../layouts/header.php'; ?>
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-6">
@@ -13,7 +13,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="/CNW/CNW_Nhom5_BTTH2/auth/login" method="POST">
+                <form action="/CNW_Nhom5_BTTH2/auth/login" method="POST">
                     <div class="mb-3">
                         <label class="form-label">Email:</label>
                         <input type="email" class="form-control" name="email" required placeholder="name@example.com">
@@ -29,10 +29,10 @@
                 </form>
             </div>
             <div class="card-footer text-center">
-                Chưa có tài khoản? <a href="/CNW/CNW_Nhom5_BTTH2/auth/register">Đăng ký tại đây</a>
+                Chưa có tài khoản? <a href="/CNW_Nhom5_BTTH2/auth/register">Đăng ký tại đây</a>
             </div>
         </div>
     </div>
 </div>
 
-<?php include 'views/layouts/footer.php'; ?>
+<?php include __DIR__ . '/../layouts/footer.php'; ?>

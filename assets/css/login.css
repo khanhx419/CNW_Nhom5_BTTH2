@@ -1,0 +1,153 @@
+/* ------------------------- */
+/* NỀN + CĂN GIỮA TOÀN TRANG */
+/* ------------------------- */
+
+body {
+    background: linear-gradient(135deg, #aebcf5, #3bc9db);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ------------------------- */
+/* CARD LOGIN */
+/* ------------------------- */
+
+.card {
+    width: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* giữ header-body-footer liền nhau */
+}
+
+/* Header */
+.card-header {
+    padding: 22px;
+    background: #1c7ed6 !important;
+    color: #fff;
+    text-align: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Body */
+.card-body {
+    padding: 28px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* cách đều các input/label */
+}
+/* Container chung */
+.mb-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* cách đều label và input */
+}
+
+/* Label */
+.form-label {
+    font-weight: 600;
+    color: #343a40;
+    font-size: 15px;
+}
+
+/* Input */
+.form-control {
+    height: 45px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0 14px;
+    transition: all 0.3s ease;
+    background-color: #fdfdfd;
+}
+
+/* Hiệu ứng khi focus */
+.form-control:focus {
+    border-color: #1c7ed6;
+    box-shadow: 0 0 0 3px rgba(28,126,214,0.2);
+    outline: none;
+}
+
+/* Placeholder */
+.form-control::placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Thêm hiệu ứng hover */
+.form-control:hover {
+    border-color: #1c7ed6;
+}
+
+
+/* Nút submit */
+.btn-primary {
+    height: 48px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1c7ed6, #3bc9db);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-top: 15px;
+}
+
+/* Hover */
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1864ab, #1098ad);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Active (khi click giữ) */
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Focus (khi tab tới nút) */
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(28,126,214,0.3);
+}
+
+/* Footer */
+.card-footer {
+    background: #f8f9fa;
+    padding: 18px;
+    text-align: center;
+}
+
+.card-footer a {
+    font-weight: bold;
+    color: #1c7ed6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+    color: #1864ab;
+}
+
+/* Thông báo */
+.alert {
+    font-size: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+}

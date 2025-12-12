@@ -1,4 +1,7 @@
 <?php
+require_once "models/Course.php";
+require_once "models/Enrollment.php";
+require_once "config/Database.php";
 class StudentController
 {
 
