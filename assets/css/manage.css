@@ -1,0 +1,166 @@
+/* ------------------------- */
+/* USER MANAGEMENT PAGE */
+/* ------------------------- */
+
+body {
+    background: linear-gradient(135deg, #aebcf5, #3bc9db);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Heading */
+h2 {
+    font-weight: 700;
+    color: #1c7ed6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Back button */
+/* Nút quay lại Dashboard */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* cách icon và chữ */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #868e96, #adb5bd);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+
+/* Hover */
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #495057, #6c757d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+/* Active */
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Focus */
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(134,142,150,0.3);
+}
+
+
+/* Card */
+.card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+}
+
+/* Table */
+/* Table chung */
+.table {
+    width: 100%;              /* full chiều ngang container */
+    border-collapse: separate; /* giữ border tách biệt để dễ giãn */
+    border-spacing: 0 12px;    /* khoảng cách giữa các hàng */
+    font-size: 15px;
+    background: #fff;
+}
+
+/* Header */
+.table thead {
+    background: linear-gradient(135deg, #1c7ed6, #3bc9db);
+    color: #fff;
+}
+
+.table th {
+    text-align: center;
+    padding: 14px 12px;       /* giãn đều trong ô */
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+/* Body */
+.table td {
+    padding: 14px 12px;       /* giãn đều trong ô */
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Hover row */
+.table tbody tr:hover {
+    background-color: #f1f3f5;
+    transition: background 0.3s;
+}
+
+/* Badge roles */
+.badge {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Action buttons trong bảng */
+.table .btn-sm {
+    margin: 0 4px;            /* cách đều các nút */
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 6px 12px;
+}
+
+
+/* Badge roles */
+.badge {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* Action buttons */
+.btn-sm {
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-warning {
+    background: #fcc419;
+    border: none;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: #e67700;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #fa5252;
+    border: none;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #c92a2a;
+    transform: translateY(-2px);
+}

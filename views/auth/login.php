@@ -1,4 +1,8 @@
-<?php include __DIR__ . '/../layouts/header.php'; ?>
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/login.css">';
+
+include __DIR__ . '/../layouts/header.php'; 
+?>
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-6">

@@ -1,9 +1,12 @@
-<?php include 'views/layouts/header.php'; ?>
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/manage.css">';
+
+include 'views/layouts/header.php'; ?>
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2><i class="bi bi-people-fill"></i> Quản Lý Người Dùng</h2>
-        <a href="/CNW/CNW_Nhom5_BTTH2/admin/dashboard" class="btn btn-secondary">
+        <a href="/CNW_Nhom5_BTTH2/admin/dashboard" class="btn btn-secondary">
             <i class="bi bi-arrow-left"></i> Quay lại Dashboard
         </a>
     </div>

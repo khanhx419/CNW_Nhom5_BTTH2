@@ -7,7 +7,7 @@ class AdminController {
     // Nếu chưa đăng nhập hoặc không phải role=2 thì đuổi về trang Login
     private function checkAdmin() {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role']) || $_SESSION['user_role'] != 2) {
-            header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+            header("Location: /CNW_Nhom5_BTTH2/auth/login");
             exit();
         }
     }
@@ -17,7 +17,7 @@ class AdminController {
         $this->checkAdmin(); // Kiểm tra quyền trước
         include 'views/admin/dashboard.php';
     }
-
+    
     // Trang Quản lý người dùng
     public function users() {
         $this->checkAdmin();
