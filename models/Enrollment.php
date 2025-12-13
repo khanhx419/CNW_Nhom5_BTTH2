@@ -3,7 +3,7 @@ class Enrollment {
     private $conn;
 
     public function __construct($db) {
-        $this->conn = $db;
+        $this->conn = $db->getConnection();
     }
 
     // Kiểm tra học viên đã đăng ký khóa học chưa
@@ -43,14 +43,14 @@ class Enrollment {
 
     // Lấy tiến độ học tập
     public function getProgress($courseId, $studentId) {
-        $sql = "SELECT progress FROM enrollments 
-                WHERE course_id = :course AND student_id = :student";
-        
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare(
+            "SELECT progress FROM enrollments 
+            WHERE course_id = :course AND student_id = :student"
+        );
         $stmt->bindParam(":course", $courseId);
         $stmt->bindParam(":student", $studentId);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchColumn();
     }
 
     // Tăng tiến độ

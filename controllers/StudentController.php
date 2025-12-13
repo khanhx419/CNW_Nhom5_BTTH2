@@ -24,11 +24,23 @@ class StudentController
     public function dashboard()
     {
         if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 0) {
-            header("Location: /CNW/CNW_Nhom5_BTTH2/auth/login");
+            header("Location: index.php?controller=Auth&action=login");
             exit();
         }
+
+        $keyword = $_GET['keyword'] ?? '';
+        if ($keyword !== '') {
+            $allCourses = $this->courseModel->search($keyword);
+        } else {
+            $allCourses = $this->courseModel->getAll();
+        }   
+        $myCourses  = $this->enrollModel->getMyCourses($_SESSION['user_id']);
+
         include 'views/student/dashboard.php';
     }
+
+
+
 
     // --- BẮT ĐẦU PHẦN MERGE TỪ TUẤN ANH ---
 
@@ -61,6 +73,10 @@ class StudentController
 
         $course = $this->courseModel->getById($id);
         $lessons = $this->courseModel->getLessons($id);
+        $isEnrolled = $this->enrollModel->isEnrolled(
+        $id,
+        $_SESSION['user_id']
+    );
 
         include 'views/courses/detail.php';
     }
@@ -75,25 +91,29 @@ class StudentController
     }
 
     // 4. Đăng ký khóa học
-    public function enroll()
-    {
-        $courseId = $_GET['id'];
-        $studentId = $_SESSION['user_id'];
+    public function enroll() {
+    $courseId = $_GET['id'] ?? 0;
+    $studentId = $_SESSION['user_id'] ?? 0;
 
-        // Kiểm tra xem đã đăng ký chưa
-        if ($this->enrollModel->isEnrolled($courseId, $studentId)) {
-            echo "<script>
-                alert('Bạn đã đăng ký khóa này rồi!');
-                history.back();
-            </script>";
-            exit;
-        }
-
-        $this->enrollModel->register($courseId, $studentId);
-
-        // Redirect lại về trang khóa học của tôi
-        header("Location: index.php?controller=Student&action=my_courses_full");
+    if (!$courseId || !$studentId) {
+        die("Khóa học hoặc học viên không hợp lệ.");
     }
+
+    // Kiểm tra học viên đã đăng ký chưa
+    if ($this->enrollModel->isEnrolled($courseId, $studentId)) {
+        $_SESSION['message'] = "Bạn đã đăng ký khóa học này.";
+        header("Location: index.php?controller=Student&action=dashboard");
+        exit;
+    }
+
+    // Đăng ký khóa học
+    $this->enrollModel->register($courseId, $studentId);
+
+    $_SESSION['message'] = "Đăng ký khóa học thành công!";
+    header("Location: index.php?controller=Student&action=dashboard");
+    exit;
+}
+
 
     // 5. Danh sách khóa học đã đăng ký (Bản đầy đủ)
     public function my_courses_full()

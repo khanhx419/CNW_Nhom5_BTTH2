@@ -1,40 +1,63 @@
 <?php
-// an toàn biến
+// An toàn biến
 $courses = $courses ?? [];
 $keyword = $_GET['keyword'] ?? '';
 ?>
 
 <?php include __DIR__ . '/../layouts/header.php'; ?>
 
-<h2>Danh sách khóa học</h2>
+<div class="container mt-4">
 
-<form method="GET" action="index.php">
-    <input type="hidden" name="controller" value="Student">
-    <input type="hidden" name="action" value="search">
+    <h3 class="mb-3">📚 Danh sách khóa học</h3>
 
-    <input type="text" name="keyword" placeholder="Tìm khóa học..."
-           value="<?= htmlspecialchars($keyword) ?>">
-    <button type="submit">Tìm</button>
-</form>
+    <!-- FORM TÌM KIẾM -->
+    <form method="GET" action="index.php" class="mb-4">
+        <input type="hidden" name="controller" value="Student">
+        <input type="hidden" name="action" value="search">
 
-<div class="course-list">
-<?php if (empty($courses)): ?>
-    <p>Chưa có khóa học nào.</p>
-<?php else: ?>
-    <?php foreach ($courses as $c): ?>
-        <div class="course-item">
-            <img src="assets/uploads/courses/<?= htmlspecialchars($c['image']) ?>" width="150">
-
-            <h3><?= htmlspecialchars($c['title']) ?></h3>
-
-            <p><?= htmlspecialchars(substr($c['description'], 0, 100)) ?>...</p>
-
-            <a href="index.php?controller=Student&action=detail&id=<?= $c['id'] ?>">
-                Xem chi tiết
-            </a>
+        <div class="input-group">
+            <input type="text"
+                   name="keyword"
+                   class="form-control"
+                   placeholder="Nhập tên khóa học..."
+                   value="<?= htmlspecialchars($keyword) ?>">
+            <button class="btn btn-primary" type="submit">Tìm</button>
         </div>
-    <?php endforeach; ?>
-<?php endif; ?>
+    </form>
+
+    <?php if (empty($courses)): ?>
+        <div class="alert alert-info">
+            Hiện chưa có khóa học nào.
+        </div>
+    <?php else: ?>
+        <div class="row">
+            <?php foreach ($courses as $c): ?>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <img src="assets/uploads/courses/<?= htmlspecialchars($c['image']) ?>"
+                             class="card-img-top"
+                             style="max-height:180px;object-fit:cover;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <?= htmlspecialchars($c['title']) ?>
+                            </h5>
+
+                            <p class="card-text">
+                                <?= htmlspecialchars(mb_substr($c['description'], 0, 100)) ?>...
+                            </p>
+
+                            <a href="index.php?controller=Student&action=detail&id=<?= $c['id'] ?>"
+                               class="btn btn-outline-primary btn-sm">
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
 </div>
 
 <?php include __DIR__ . '/../layouts/footer.php'; ?>

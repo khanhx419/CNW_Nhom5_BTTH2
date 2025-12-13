@@ -6,7 +6,7 @@ class Lesson
 
     public function __construct($db)
     {
-        $this->conn = $db;
+         $this->conn = $db->getConnection();
     }
 
     public function getLessonsByCourse($course_id)
