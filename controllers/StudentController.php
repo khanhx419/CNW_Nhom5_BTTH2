@@ -92,27 +92,26 @@ class StudentController
 
     // 4. Đăng ký khóa học
     public function enroll() {
-    $courseId = $_GET['id'] ?? 0;
-    $studentId = $_SESSION['user_id'] ?? 0;
+        $courseId = $_GET['id'] ?? 0;
+        $studentId = $_SESSION['user_id'] ?? 0;
 
-    if (!$courseId || !$studentId) {
-        die("Khóa học hoặc học viên không hợp lệ.");
-    }
+        if (!$courseId || !$studentId) {
+            die("Khóa học hoặc học viên không hợp lệ.");
+        }
 
-    // Kiểm tra học viên đã đăng ký chưa
-    if ($this->enrollModel->isEnrolled($courseId, $studentId)) {
-        $_SESSION['message'] = "Bạn đã đăng ký khóa học này.";
-        header("Location: index.php?controller=Student&action=dashboard");
+        if ($this->enrollModel->isEnrolled($courseId, $studentId)) {
+            $_SESSION['message'] = "⚠️ Bạn đã đăng ký khóa học này.";
+            header("Location: index.php?url=student/dashboard");
+            exit;
+        }
+
+        $this->enrollModel->register($courseId, $studentId);
+
+        $_SESSION['message'] = "✅ Đăng ký khóa học thành công!";
+        header("Location: index.php?url=student/dashboard");
         exit;
     }
 
-    // Đăng ký khóa học
-    $this->enrollModel->register($courseId, $studentId);
-
-    $_SESSION['message'] = "Đăng ký khóa học thành công!";
-    header("Location: index.php?controller=Student&action=dashboard");
-    exit;
-}
 
 
     // 5. Danh sách khóa học đã đăng ký (Bản đầy đủ)
@@ -126,12 +125,23 @@ class StudentController
     // 6. Theo dõi tiến độ
     public function progress()
     {
-        $courseId = $_GET['id'];
+        $courseId = $_GET['id'] ?? null;
         $studentId = $_SESSION['user_id'];
 
-        $progress = $this->enrollModel->getProgress($courseId, $studentId);
+        if (!$courseId) {
+            die("Không tìm thấy khóa học.");
+        }
+
+        $course = $this->courseModel->getById($courseId);
+
+        if (!$course) {
+            die("Khóa học không tồn tại.");
+        }
+
         $lessons = $this->courseModel->getLessons($courseId);
 
         include 'views/student/course_progress.php';
     }
+
+
 } // Kết thúc class StudentController

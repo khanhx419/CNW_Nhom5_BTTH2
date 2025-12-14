@@ -1,59 +1,66 @@
 <?php
-// An toàn dữ liệu
-$course   = $course   ?? [];
-$lessons  = $lessons  ?? [];
+$course     = $course ?? [];
+$lessons    = $lessons ?? [];
 $isEnrolled = $isEnrolled ?? false;
+
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/detail.css">';
+include __DIR__ . '/../layouts/header.php';
 ?>
 
-<?php include __DIR__ . '/../layouts/header.php'; ?>
-
-<div class="container mt-4">
+<div class="course-detail-container">
 
 <?php if (empty($course)): ?>
-    <div class="alert alert-danger">
+
+    <div class="enrolled-alert">
         Không tìm thấy khóa học.
     </div>
+
 <?php else: ?>
 
-    <h3 class="mb-3"><?= htmlspecialchars($course['title']) ?></h3>
+    <h3 class="course-detail-title">
+        <?= htmlspecialchars($course['title']) ?>
+    </h3>
 
-    <img src="assets/uploads/courses/<?= htmlspecialchars($course['image']) ?>"
+    <img src="/CNW_Nhom5_BTTH2/assets/<?= htmlspecialchars($course['image']) ?>"
          alt="Course image"
-         class="img-fluid mb-3"
-         style="max-width:300px;">
+         class="course-detail-image">
 
-    <p><strong>Mô tả:</strong> <?= htmlspecialchars($course['description']) ?></p>
-    <p><strong>Thời lượng:</strong> <?= htmlspecialchars($course['duration_weeks']) ?> tuần</p>
-    <p><strong>Mức độ:</strong> <?= htmlspecialchars($course['level']) ?></p>
-    <p><strong>Giá:</strong> <?= number_format($course['price']) ?> VND</p>
+    <div class="course-info">
+        <p><strong>Mô tả:</strong> <?= htmlspecialchars($course['description']) ?></p>
+        <p><strong>Thời lượng:</strong> <?= htmlspecialchars($course['duration_weeks']) ?> tuần</p>
+        <p><strong>Mức độ:</strong> <?= htmlspecialchars($course['level']) ?></p>
+        <p><strong>Giá:</strong> <?= number_format($course['price']) ?> VND</p>
+    </div>
 
-    <?php if (!$isEnrolled): ?>
-        <a href="index.php?controller=Student&action=enroll&id=<?= $course['id'] ?>"
-           class="btn btn-primary mb-4">
-            Đăng ký khóa học
-        </a>
-    <?php else: ?>
-        <div class="alert alert-success mb-4">
-            Bạn đã đăng ký khóa học này.
-        </div>
-    <?php endif; ?>
+    <div class="course-actions">
+        <?php if (!$isEnrolled): ?>
+            <a href="index.php?controller=Student&action=enroll&id=<?= $course['id'] ?>"
+               class="btn-primary-custom">
+                Đăng ký khóa học
+            </a>
+        <?php else: ?>
+            <div class="enrolled-alert">
+                Bạn đã đăng ký khóa học này.
+            </div>
+        <?php endif; ?>
+    </div>
 
-    <h5>📚 Danh sách bài học</h5>
+    <h5 class="lesson-title">📚 Danh sách bài học</h5>
 
     <?php if (empty($lessons)): ?>
         <p class="text-muted">Chưa có bài học nào.</p>
     <?php else: ?>
-        <ul class="list-group mb-4">
+        <ul class="lesson-list">
             <?php foreach ($lessons as $lesson): ?>
-                <li class="list-group-item">
+                <li class="lesson-item">
                     <?= htmlspecialchars($lesson['title']) ?>
                 </li>
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
 
-    <a href="index.php?controller=Student&action=dashboard"
-       class="btn btn-secondary">
+    <a href="index.php?url=student/dashboard"
+        class="back-btn">
         ← Quay lại Dashboard
     </a>
 

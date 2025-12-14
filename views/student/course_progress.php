@@ -4,44 +4,43 @@ $progress = $progress ?? 0;
 $lessons  = $lessons  ?? [];
 ?>
 
-<?php include __DIR__ . '/../layouts/header.php'; ?>
+<?php 
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/course_progress.css">';
+include __DIR__ . '/../layouts/header.php'; ?>
 
-<div class="container mt-4">
+<div class="progress-page">
 
-    <h3 class="mb-3">📈 Tiến độ học tập</h3>
+    <h3>📈 Tiến độ học tập</h3>
 
-    <p>
-        <strong>Tiến độ hiện tại:</strong>
-        <?= htmlspecialchars($progress) ?>%
+    <p class="progress-info">
+        Tiến độ hiện tại: <?= (int)$progress ?>%
     </p>
 
-    <div class="progress mb-4" style="height: 25px;">
-        <div class="progress-bar bg-success"
-             role="progressbar"
-             style="width: <?= (int)$progress ?>%;">
+    <div class="progress-track">
+        <div class="progress-fill" style="width: <?= (int)$progress ?>%;">
             <?= (int)$progress ?>%
         </div>
     </div>
 
-    <h5 class="mb-3">📚 Danh sách bài học</h5>
+    <div class="lesson-section">
+        <h5>📚 Danh sách bài học</h5>
 
-    <?php if (empty($lessons)): ?>
-        <p class="text-muted">Chưa có bài học nào.</p>
-    <?php else: ?>
-        <ul class="list-group mb-4">
-            <?php foreach ($lessons as $lesson): ?>
-                <li class="list-group-item">
-                    <?= htmlspecialchars($lesson['title']) ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+        <?php if (empty($lessons)): ?>
+            <p class="empty-lessons">Chưa có bài học nào.</p>
+        <?php else: ?>
+            <ul class="lesson-list">
+                <?php foreach ($lessons as $lesson): ?>
+                    <li><?= htmlspecialchars($lesson['title']) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
 
-    <a href="index.php?controller=Student&action=my_courses_full"
-       class="btn btn-secondary">
+    <a href="index.php?url=student/dashboard" class="btn-back">
         ← Quay lại khóa học của tôi
     </a>
 
 </div>
+
 
 <?php include __DIR__ . '/../layouts/footer.php'; ?>

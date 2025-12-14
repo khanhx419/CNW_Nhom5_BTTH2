@@ -6,18 +6,19 @@ require_once 'controllers/AuthMiddleware.php';
 $controllerName = 'HomeController';
 $actionName = 'index';
 
-if (isset($_GET['url'])) {
-    $url = rtrim($_GET['url'], '/');
+if (isset($_GET['url']) && $_GET['url'] !== 'index.php') {
+    $url = trim($_GET['url'], '/');
     $url = explode('/', $url);
 
     if (!empty($url[0])) {
         $controllerName = ucfirst($url[0]) . 'Controller';
     }
 
-    if (isset($url[1])) {
+    if (!empty($url[1])) {
         $actionName = $url[1];
     }
 }
+
 
 $controllerPath = 'controllers/' . $controllerName . '.php';
 

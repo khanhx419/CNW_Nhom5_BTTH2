@@ -1,45 +1,37 @@
-<?php include __DIR__ . '/../layouts/header.php'; ?>
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/my_courses.css">';
+include __DIR__ . '/../layouts/header.php';
+?>
 
-<div class="container mt-4">
+<div class="my-courses-container">
 
-    <h3 class="mb-4">📘 Khóa học của tôi</h3>
+    <h3>📘 Khóa học của tôi</h3>
 
     <?php if (empty($courses)): ?>
-        <div class="alert alert-info">
+        <div class="alert-info">
             Bạn chưa đăng ký khóa học nào.
         </div>
     <?php else: ?>
-        <div class="row">
+        <div class="course-grid">
             <?php foreach ($courses as $c): ?>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <?= htmlspecialchars($c['title']) ?>
-                            </h5>
+                <div class="course-card">
+                    <h5><?= htmlspecialchars($c['title']) ?></h5>
+                    <p>Tiến độ: <strong><?= $c['progress'] ?>%</strong></p>
 
-                            <p class="card-text">
-                                Tiến độ: <strong><?= $c['progress'] ?>%</strong>
-                            </p>
-
-                            <a href="index.php?controller=Student&action=detail&id=<?= $c['id'] ?>"
-                               class="btn btn-outline-primary btn-sm">
-                                Xem chi tiết
-                            </a>
-
-                            <a href="index.php?controller=Student&action=progress&id=<?= $c['id'] ?>"
-                               class="btn btn-success btn-sm">
-                                Theo dõi tiến độ
-                            </a>
-                        </div>
+                    <div class="course-actions">
+                        <a href="index.php?url=student/detail&id=<?= $c['id'] ?>" class="btn-outline">
+                            Xem chi tiết
+                        </a>
+                        <a href="index.php?url=student/progress&id=<?= $c['id'] ?>" class="btn-success">
+                            Theo dõi tiến độ
+                        </a>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
 
-    <a href="index.php?controller=Student&action=dashboard"
-       class="btn btn-secondary mt-4">
+    <a href="index.php?url=student/dashboard" class="back-dashboard">
         ← Quay lại Dashboard
     </a>
 
