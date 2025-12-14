@@ -1,0 +1,70 @@
+/* ------------------------- */
+/* HOME PAGE STYLES */
+/* ------------------------- */
+
+body {
+    background: linear-gradient(135deg, #aebcf5, #3bc9db);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1c7ed6;
+    margin-bottom: 20px;
+}
+
+/* Subtitle */
+p {
+    font-size: 18px;
+    color: #495057;
+    margin-bottom: 30px;
+}
+
+/* Button */
+.btn-primary {
+    height: 48px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1c7ed6, #3bc9db);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 10px 24px;
+}
+
+/* Hover */
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1864ab, #1098ad);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Active */
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Focus */
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(28,126,214,0.3);
+}

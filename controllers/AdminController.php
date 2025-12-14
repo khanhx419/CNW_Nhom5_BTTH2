@@ -1,6 +1,7 @@
 <?php
 require_once 'models/User.php';
 // (sau này nếu có Course model thì require thêm)
+require_once 'models/Course.php';
 
 class AdminController {
     
@@ -46,5 +47,36 @@ class AdminController {
         // Sau này sẽ kết nối Model Course
         include 'views/admin/courses/manage.php';
     }
+    // Trang thêm khóa học
+public function addCourse()
+{
+    $this->checkAdmin();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $database = new Database();
+        $db = $database->getConnection();
+        $course = new Course($db);
+
+        $data = [
+            ':title' => $_POST['title'],
+            ':description' => '',                     // có thể thêm sau
+            ':inst' => $_SESSION['user_id'],          // instructor_id
+            ':cat' => 1,                              // category_id mặc định
+            ':price' => $_POST['price'],
+            ':dur' => null,                           // duration_weeks
+            ':level' => $_POST['level'],
+            ':image' => null
+        ];
+
+        $course->create($data);
+
+        header("Location: /CNW_Nhom5_BTTH2/admin/courses");
+        exit();
+    }
+
+    include 'views/admin/courses/add.php';
+}
+
 }
 ?>

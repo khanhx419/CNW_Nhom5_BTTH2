@@ -1,5 +1,8 @@
-<?php include_once "views/layouts/header.php"; ?>
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/instr_course_manage.css">';
 
+include __DIR__ . '/../../layouts/header.php';
+?>
 <h2>Manage Courses</h2>
 
 <a href="index.php?controller=course&action=create">+ Create New Course</a>
@@ -29,4 +32,5 @@
     <?php endforeach; ?>
 </table>
 
-<?php include_once "views/layouts/footer.php"; ?>
+<?php include __DIR__ . '/../../layouts/footer.php';
+?>

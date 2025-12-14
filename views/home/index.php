@@ -1,4 +1,7 @@
-<?php include 'views/layouts/header.php'; ?>
+<?php 
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/home_index.css">';
+
+include __DIR__ . '/../layouts/header.php'; ?>
 
 <div class="container mt-5 text-center">
     <h1>Website Quản lý Khóa học</h1>
@@ -10,4 +13,4 @@
     </a>
 </div>
 
-<?php include 'views/layouts/footer.php'; ?>
+<?php include __DIR__ . '/../layouts/footer.php'; ?>

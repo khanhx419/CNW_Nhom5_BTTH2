@@ -1,5 +1,8 @@
-<?php include_once "views/layouts/header.php"; ?>
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/instr_course_create.css">';
 
+include __DIR__ . '/../../layouts/header.php';
+?>
 <h2>Edit Course</h2>
 
 <form action="index.php?controller=course&action=update&id=<?= $course['id'] ?>" method="POST">
@@ -18,4 +21,5 @@
 
 <a href="index.php?controller=course&action=manage">Back to Manage</a>
 
-<?php include_once "views/layouts/footer.php"; ?>
+<?php include __DIR__ . '/../../layouts/footer.php';
+?>

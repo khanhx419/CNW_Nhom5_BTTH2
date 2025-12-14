@@ -4,7 +4,10 @@ $courses = $courses ?? [];
 $keyword = $_GET['keyword'] ?? '';
 ?>
 
-<?php include __DIR__ . '/../layouts/header.php'; ?>
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/courses_index.css">';
+
+include __DIR__ . '/../layouts/header.php'; ?>
 
 <div class="container mt-4">
 

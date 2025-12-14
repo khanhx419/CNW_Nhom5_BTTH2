@@ -1,3 +1,9 @@
+<?php
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/instr_course_create.css">';
+
+include __DIR__ . '/../../layouts/header.php';
+?>
+
 <h2>Tạo khóa học</h2>
 
 <form method="POST" enctype="multipart/form-data" action="index.php?controller=Course&action=store">
@@ -28,3 +34,5 @@
 
     <button type="submit">Lưu</button>
 </form>
+<?php include __DIR__ . '/../../layouts/footer.php';
+?>

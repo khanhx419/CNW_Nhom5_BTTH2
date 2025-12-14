@@ -1,0 +1,127 @@
+/* ------------------------- */
+/* COURSE MANAGEMENT PAGE */
+/* ------------------------- */
+
+body {
+    background: linear-gradient(135deg, #aebcf5, #3bc9db);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Heading */
+h2 {
+    font-weight: 700;
+    color: #1c7ed6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Add Course button */
+.btn-success {
+    background: linear-gradient(135deg, #20c997, #38d9a9);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-bottom: 20px; /* tạo khoảng cách với phần dưới */
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #0ca678, #12b886);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+/* Alert */
+.alert-info {
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 15px;
+    background: #e7f5ff;
+    color: #1c7ed6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px; /* cách đều với bảng */
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* giãn hàng */
+    font-size: 15px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #1c7ed6, #3bc9db);
+    color: #fff;
+}
+
+.table th {
+    text-align: center;
+    padding: 14px 12px;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+.table td {
+    padding: 14px 12px;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Hover row */
+.table tbody tr:hover {
+    background-color: #f1f3f5;
+    transition: background 0.3s;
+}
+
+/* Action buttons */
+.btn-sm {
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 6px 12px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+/* Edit button */
+.btn-warning {
+    background: #fcc419;
+    border: none;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: #e67700;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Delete button */
+.btn-danger {
+    background: #fa5252;
+    border: none;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #c92a2a;
+    transform: translateY(-2px);
+}
+.d-flex.justify-content-between {
+    margin-bottom: 20px; /* tạo khoảng cách với phần dưới */
+}

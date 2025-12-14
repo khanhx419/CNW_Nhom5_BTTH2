@@ -1,5 +1,5 @@
 <?php
-$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/manage.css">';
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/manage_user.css">';
 
 include 'views/layouts/header.php'; ?>
 

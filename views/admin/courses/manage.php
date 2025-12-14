@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 2) {
 
 // An toàn biến
 $courses = $courses ?? [];
+$custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/manage_admin.css">';
 
 include 'views/layouts/header.php';
 ?>

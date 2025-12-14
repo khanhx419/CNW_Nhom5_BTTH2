@@ -1,0 +1,119 @@
+/* ------------------------- */
+/* PAGE BACKGROUND */
+/* ------------------------- */
+body {
+    background: #f4f6f9;
+    font-family: "Segoe UI", sans-serif;
+    padding: 40px 0;
+}
+
+/* ------------------------- */
+/* PAGE TITLE */
+/* ------------------------- */
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1c7ed6;
+    margin-bottom: 25px;
+}
+
+/* ------------------------- */
+/* CREATE BUTTON */
+/* ------------------------- */
+a[href*="action=create"] {
+    display: inline-block;
+    margin: 0 auto 20px auto;
+    background: linear-gradient(135deg, #20c997, #38d9a9);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a[href*="action=create"]:hover {
+    background: linear-gradient(135deg, #0ca678, #12b886);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* ------------------------- */
+/* TABLE STYLE */
+/* ------------------------- */
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+table th {
+    background: #1c7ed6;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    text-align: left;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 15px;
+    color: #343a40;
+}
+
+table tr:hover {
+    background: #f1f3f5;
+}
+
+/* ------------------------- */
+/* ACTION LINKS */
+/* ------------------------- */
+td a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 6px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+/* Edit */
+td a[href*="edit"] {
+    color: #1c7ed6;
+}
+
+td a[href*="edit"]:hover {
+    background: rgba(28,126,214,0.15);
+}
+
+/* Delete */
+td a[href*="delete"] {
+    color: #e03131;
+}
+
+td a[href*="delete"]:hover {
+    background: rgba(224,49,49,0.15);
+}
+
+/* Lessons */
+td a[href*="lesson"] {
+    color: #0ca678;
+}
+
+td a[href*="lesson"]:hover {
+    background: rgba(12,166,120,0.15);
+}
+
+/* Materials */
+td a[href*="material"] {
+    color: #ae3ec9;
+}
+
+td a[href*="material"]:hover {
+    background: rgba(174,62,201,0.15);
+}
