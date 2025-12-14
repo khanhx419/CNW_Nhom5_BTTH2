@@ -1,5 +1,6 @@
 <?php
 require_once 'models/User.php';
+// (sau này nếu có Course model thì require thêm)
 
 class AdminController {
     
@@ -33,6 +34,17 @@ class AdminController {
         
         // Gửi biến $users sang View để hiển thị
         include 'views/admin/users/manage.php';
+    }
+
+    // ============================
+    // ✅ THÊM MỚI: QUẢN LÝ KHÓA HỌC
+    // ============================
+    public function courses() {
+        $this->checkAdmin();
+
+        // Tạm thời chỉ load view
+        // Sau này sẽ kết nối Model Course
+        include 'views/admin/courses/manage.php';
     }
 }
 ?>

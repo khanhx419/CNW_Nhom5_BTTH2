@@ -11,7 +11,6 @@ $custom_css = '<link rel="stylesheet" href="/CNW_Nhom5_BTTH2/assets/css/admin.cs
 include 'views/layouts/header.php';
 ?>
 
-
 <div class="container mt-4">
 
     <div class="alert alert-primary">
@@ -27,7 +26,9 @@ include 'views/layouts/header.php';
                 <div class="card-body text-center">
                     <h4>👤 Người dùng</h4>
                     <p>Quản lý tài khoản học viên và giảng viên.</p>
-                    <a href="/CNW_Nhom5_BTTH2/admin/users" class="btn btn-primary">Quản lý</a>
+                    <a href="/CNW_Nhom5_BTTH2/admin/users" class="btn btn-primary">
+                        Quản lý
+                    </a>
                 </div>
             </div>
         </div>
@@ -38,7 +39,10 @@ include 'views/layouts/header.php';
                 <div class="card-body text-center">
                     <h4>📚 Khóa học</h4>
                     <p>Thêm, sửa, xóa khóa học.</p>
-                    <a href="#" class="btn btn-success">Xem khóa học</a>
+                    <!-- SỬA Ở ĐÂY -->
+                    <a href="/CNW_Nhom5_BTTH2/admin/courses" class="btn btn-success">
+                        Xem khóa học
+                    </a>
                 </div>
             </div>
         </div>
@@ -49,7 +53,9 @@ include 'views/layouts/header.php';
                 <div class="card-body text-center">
                     <h4>🚪 Đăng xuất</h4>
                     <p>Kết thúc phiên làm việc quản trị.</p>
-                    <a href="/CNW_Nhom5_BTTH2/auth/logout" class="btn btn-danger">Đăng xuất</a>
+                    <a href="/CNW_Nhom5_BTTH2/auth/logout" class="btn btn-danger">
+                        Đăng xuất
+                    </a>
                 </div>
             </div>
         </div>
