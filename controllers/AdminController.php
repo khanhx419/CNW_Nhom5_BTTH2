@@ -46,5 +46,6 @@ class AdminController {
         // Sau này sẽ kết nối Model Course
         include 'views/admin/courses/manage.php';
     }
+    
 }
 ?>
